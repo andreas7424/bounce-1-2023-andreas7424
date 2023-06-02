@@ -1,5 +1,6 @@
 package bounce;
 
+
 /**
  * Implementation of the Painter interface that does not actually do any
  * painting. A MockPainter implementation responds to Painter requests by
@@ -33,6 +34,18 @@ public class MockPainter implements Painter {
         public void drawOval ( int x, int y, int width, int height){
             log.append("(oval " + x + "," + y + "," + width + "," + height + ")");
         }
+
+
+    public void drawPolygon(int[] xPoints, int[] yPoints, int numPoints) {
+        log.append("(polygon ");
+        for (int i = 0; i < numPoints; i++) {
+            if (i > 0) {
+                log.append(",");
+            }
+            log.append(xPoints[i]).append(",").append(yPoints[i]);
+        }
+        log.append(")");
+    }
 
 
 }

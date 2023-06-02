@@ -23,6 +23,7 @@ public class GraphicsPainter implements Painter {
      * see bounce.Painter.drawRect
      */
     public void drawRect(int x, int y, int width, int height) {
+
         g.drawRect(x, y, width, height);
     }
 
@@ -31,5 +32,10 @@ public class GraphicsPainter implements Painter {
      */
     public void drawOval(int x, int y, int width, int height) {
         g.drawOval(x, y, width, height);
+    }
+
+    @Override
+    public void drawPolygon(int[] xPoints, int[] yPoints, int i) {
+
     }
 }
