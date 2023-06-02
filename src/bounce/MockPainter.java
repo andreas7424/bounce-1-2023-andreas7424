@@ -19,17 +19,20 @@ public class MockPainter implements Painter {
         return log.toString();
     }
 
-    /**
-     * Logs the drawRect call.
-     */
-    public void drawRect(int x, int y, int width, int height) {
-        log.append("(rectangle " + x + "," + y + "," + width + "," + height + ")");
-    }
 
-    /**
-     * Logs the drawOval call.
-     */
-    public void drawOval(int x, int y, int width, int height) {
-        log.append("(oval " + x + "," + y + "," + width + "," + height + ")");
-    }
+        /**
+         * Logs the drawRect call.
+         */
+        public void drawRect ( int x, int y, int width, int height){
+            log.append("(rectangle " + x + "," + y + "," + width + "," + height + ")");
+        }
+
+        /**
+         * Logs the drawOval call.
+         */
+        public void drawOval ( int x, int y, int width, int height){
+            log.append("(oval " + x + "," + y + "," + width + "," + height + ")");
+        }
+
+
 }

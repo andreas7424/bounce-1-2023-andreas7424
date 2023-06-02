@@ -18,4 +18,5 @@ public interface Painter {
      */
     public void drawOval(int x, int y, int width, int height);
 
+    void drawPolygon(int[] xPoints, int[] yPoints, int i);
 }
