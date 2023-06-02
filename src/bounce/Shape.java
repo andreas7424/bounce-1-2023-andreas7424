@@ -56,6 +56,7 @@ public abstract class Shape {
      * The Shape object is created with a default width and height.
      */
     public Shape(int x, int y, int deltaX, int deltaY) {
+
         this(x, y, deltaX, deltaY, DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
 
