@@ -4,8 +4,8 @@ public class GemShape extends Shape {
 
     public GemShape(int x, int y, int deltaX, int deltaY) {
         super(x, y, deltaX, deltaY);
-        width = 40; // Set the initial width
-        height = 40; // Set the initial height
+        width = 100; // Set the initial width
+        height = 100; // Set the initial height
     }
 
     @Override

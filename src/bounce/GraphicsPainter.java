@@ -31,11 +31,12 @@ public class GraphicsPainter implements Painter {
      * see bounce.Painter.drawOval
      */
     public void drawOval(int x, int y, int width, int height) {
+
         g.drawOval(x, y, width, height);
     }
 
     @Override
-    public void drawPolygon(int[] xPoints, int[] yPoints, int i) {
-
+    public void drawPolygon(int[] xPoints, int[] yPoints, int numPoints) {
+        g.drawPolygon(xPoints, yPoints, numPoints);
     }
 }
