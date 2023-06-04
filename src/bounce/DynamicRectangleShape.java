@@ -12,6 +12,11 @@ public class DynamicRectangleShape extends Shape {
         this.isFilled = false; // Initially, the shape is not filled
     }
 
+    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, Color fillColor) {
+        // Use default width and height values
+        this(x, y, deltaX, deltaY, DEFAULT_WIDTH, DEFAULT_HEIGHT, fillColor);
+    }
+
     @Override
     public void paint(Painter painter) {
         if (isFilled) {
@@ -31,10 +36,10 @@ public class DynamicRectangleShape extends Shape {
         super.move(width, height);
 
         // Check if the shape has bounced off the walls
-        if (x <= 0 || x + width >= width) {
+        if (x <= 0 || x + this.width >= width) {
             // Bounced off the left or right wall, change appearance to filled
             isFilled = true;
-        } else if (y <= 0 || y + height >= height) {
+        } else if (y <= 0 || y + this.height >= height) {
             // Bounced off the top or bottom wall, change appearance to outline
             isFilled = false;
         }
