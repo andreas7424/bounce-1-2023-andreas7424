@@ -1,6 +1,6 @@
 package bounce;
 
-import java.awt.Graphics;
+import java.awt.*;
 
 /**
  * Implementation of the Painter interface that delegates drawing to a
@@ -11,6 +11,7 @@ import java.awt.Graphics;
 public class GraphicsPainter implements Painter {
     // Delegate object.
     private Graphics g;
+    private Color color;
 
     /**
      * Creates a GraphicsPainter object and sets its Graphics delegate.
@@ -39,4 +40,24 @@ public class GraphicsPainter implements Painter {
     public void drawPolygon(int[] xPoints, int[] yPoints, int numPoints) {
         g.drawPolygon(xPoints, yPoints, numPoints);
     }
+
+    public void fillRect(int x, int y, int width, int height) {
+        g.fillRect(x, y, width, height);
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+        g.setColor(color);
+    }
 }
+
+
+
+
+
+
+

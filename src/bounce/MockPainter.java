@@ -1,6 +1,8 @@
 package bounce;
 
 
+import java.awt.*;
+
 /**
  * Implementation of the Painter interface that does not actually do any
  * painting. A MockPainter implementation responds to Painter requests by
@@ -12,6 +14,7 @@ package bounce;
 public class MockPainter implements Painter {
     // Internal log.
     private StringBuffer log = new StringBuffer();
+    private Color color;
 
     /**
      * Returns the contents of this MockPainter's log.
@@ -47,5 +50,16 @@ public class MockPainter implements Painter {
         log.append(")");
     }
 
+    @Override
+    public void fillRect(int x, int y, int width, int height) {
 
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
 }

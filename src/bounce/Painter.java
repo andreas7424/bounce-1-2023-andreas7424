@@ -1,5 +1,7 @@
 package bounce;
 
+import java.awt.*;
+
 /**
  * Interface to represent a type that offers primitive drawing methods.
  *
@@ -19,4 +21,7 @@ public interface Painter {
     public void drawOval(int x, int y, int width, int height);
 
     void drawPolygon(int[] xPoints, int[] yPoints, int i);
+    public void fillRect(int x, int y, int width, int height);
+    public Color getColor();
+    void setColor(Color color);
 }
