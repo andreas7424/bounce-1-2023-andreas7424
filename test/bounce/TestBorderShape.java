@@ -2,6 +2,8 @@ package bounce;
 
 import static org.junit.Assert.assertEquals;
 
+import java.awt.Color;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,21 +16,30 @@ public class TestBorderShape {
     }
 
     @Test
-    public void testMove() {
-        RectangleShape shape = new RectangleShape(100, 100, 5, 5);
-        BorderShape borderShape = new BorderShape(shape, 2);
-        borderShape.move(500, 500);
-        assertEquals(105, shape.x());
-        assertEquals(105, shape.y());
-        assertEquals(25, shape.width());
-        assertEquals(25, shape.height());
+    public void testPaintBorderAroundRectangleShape() {
+        Shape rectangleShape = new RectangleShape(50, 50, 3, 2);
+        BorderShape borderShape = new BorderShape(rectangleShape, 2);
+
+        borderShape.paint(painter);
+
+        assertEquals("(rectangle 50,50,25,35)(rectangle 48,48,29,39)(rectangle 49,49,27,37)", painter.toString());
     }
 
     @Test
-    public void testPaint() {
-        RectangleShape shape = new RectangleShape(100, 100, 5, 5);
-        BorderShape borderShape = new BorderShape(shape, 2);
-        borderShape.paint(painter);
-        assertEquals("(rectangle 98,98,29,29)(rectangle 100,100,25,25)", painter.toString());
+    public void testPaintMultipleBordersAroundRectangleShape() {
+        Shape rectangleShape = new RectangleShape(50, 50, 3, 2);
+        BorderShape borderShape1 = new BorderShape(rectangleShape, 2);
+        BorderShape borderShape2 = new BorderShape(borderShape1, 4);
+
+        borderShape2.paint(painter);
+
+        assertEquals(
+                "(rectangle 50,50,25,35)(rectangle 48,48,29,39)(rectangle 49,49,27,37)(rectangle 44,44,37,47)(rectangle 45,45,35,45)(rectangle 46,46,33,43)(rectangle 47,47,31,41)",
+                painter.toString()
+        );
     }
+
 }
+
+
+

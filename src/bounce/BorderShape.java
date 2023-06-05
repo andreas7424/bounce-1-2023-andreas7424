@@ -1,5 +1,7 @@
 package bounce;
 
+import java.awt.Color;
+
 public class BorderShape extends Shape {
     private Shape shape;
     private int borderWidth;
@@ -7,24 +9,37 @@ public class BorderShape extends Shape {
     public BorderShape(Shape shape, int borderWidth) {
         this.shape = shape;
         this.borderWidth = borderWidth;
+        adjustPositionAndDimensions();
     }
 
-    @Override
-    public void move(int width, int height) {
-        shape.move(width, height);
-        adjustBounds();
+    private void adjustPositionAndDimensions() {
+        int shapeX = shape.x() - borderWidth;
+        int shapeY = shape.y() - borderWidth;
+        int shapeWidth = shape.width() + (2 * borderWidth);
+        int shapeHeight = shape.height() + (2 * borderWidth);
+
+        this.x = shapeX;
+        this.y = shapeY;
+        this.width = shapeWidth;
+        this.height = shapeHeight;
     }
 
     @Override
     public void paint(Painter painter) {
         shape.paint(painter);
-        painter.drawRect(x, y, width, height);
+        for (int i = 0; i < borderWidth; i++) {
+            int x = shape.x() - borderWidth + i;
+            int y = shape.y() - borderWidth + i;
+            int width = shape.width() + (2 * borderWidth) - (2 * i);
+            int height = shape.height() + (2 * borderWidth) - (2 * i);
+
+            painter.drawRect(x, y, width, height);
+        }
     }
 
-    private void adjustBounds() {
-        x = shape.x() - borderWidth;
-        y = shape.y() - borderWidth;
-        width = shape.width() + 2 * borderWidth;
-        height = shape.height() + 2 * borderWidth;
+    @Override
+    public void move(int width, int height) {
+        shape.move(width, height);
+        adjustPositionAndDimensions();
     }
 }
