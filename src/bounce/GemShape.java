@@ -18,9 +18,21 @@ public class GemShape extends Shape {
             yPoints = new int[]{y, y + height / 2, y + height, y + height / 2};
         } else {
             xPoints = new int[]{x + width / 4, x + width * 3 / 4, x + width, x + width / 2};
-            yPoints = new int[]{y, y, y + height, y + height / 2};
+            yPoints = new int[]{y, y + height / 2, y + height, y + height / 2};
         }
 
-        painter.drawPolygon(xPoints, yPoints, 4);
+        painter.drawPolygon(xPoints, yPoints, xPoints.length);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
