@@ -6,12 +6,14 @@ public class BorderShape extends Shape {
     private Shape shape;
     private int borderWidth;
 
+    // Constructor. This sets the inner shape and border width when a new BorderShape is created.
     public BorderShape(Shape shape, int borderWidth) {
         this.shape = shape;
         this.borderWidth = borderWidth;
         adjustPositionAndDimensions();
     }
 
+    // This method paints the border shape. It paints the inner shape first, then draws the border.
     private void adjustPositionAndDimensions() {
         int shapeX = shape.x() - borderWidth;
         int shapeY = shape.y() - borderWidth;
