@@ -26,6 +26,7 @@ public class BorderShape extends Shape {
         this.height = shapeHeight;
     }
 
+// Draw the border. It draws the border in multiple iterations to achieve the border width.
     @Override
     public void paint(Painter painter) {
         shape.paint(painter);
