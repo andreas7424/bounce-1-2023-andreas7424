@@ -63,4 +63,9 @@ public class MockPainter implements Painter {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    @Override
+    public void translate(int x, int y) {
+
+    }
 }

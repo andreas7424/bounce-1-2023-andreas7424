@@ -24,4 +24,6 @@ public interface Painter {
     public void fillRect(int x, int y, int width, int height);
     public Color getColor();
     void setColor(Color color);
+
+    void translate(int x, int y);
 }

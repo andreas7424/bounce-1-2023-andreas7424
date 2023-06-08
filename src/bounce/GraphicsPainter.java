@@ -53,6 +53,11 @@ public class GraphicsPainter implements Painter {
         this.color = color;
         g.setColor(color);
     }
+
+    @Override
+    public void translate(int x, int y) {
+
+    }
 }
 
 
