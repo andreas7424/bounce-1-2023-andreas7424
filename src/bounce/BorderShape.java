@@ -43,6 +43,6 @@ public class BorderShape extends Shape {
     @Override
     public void move(int width, int height) {
         shape.move(width, height);
-        adjustPositionAndDimensions();
+        adjustPositionAndDimensions(); // Adjust position and dimensions to accommodate the border.
     }
 }

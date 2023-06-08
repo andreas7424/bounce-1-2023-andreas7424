@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public class DynamicRectangleShape extends Shape {
     private Color fillColor;
-    private boolean outlineOnly;
+    private boolean outlineOnly;// Boolean to check if we only want to draw the outline of the rectangle
 
     public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, Color fillColor) {
         super(x, y, deltaX, deltaY);
