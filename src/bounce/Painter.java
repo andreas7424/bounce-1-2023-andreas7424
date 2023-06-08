@@ -26,4 +26,5 @@ public interface Painter {
     void setColor(Color color);
 
     void translate(int x, int y);
+
 }

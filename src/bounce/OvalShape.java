@@ -8,6 +8,7 @@ public class OvalShape extends Shape {
         super(x, y, deltaX, deltaY);
     }
 
+
     @Override
     public void paint(Painter painter) {
 

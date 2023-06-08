@@ -66,6 +66,8 @@ public class MockPainter implements Painter {
 
     @Override
     public void translate(int x, int y) {
+        log.append("(translate " + x + "," + y + ")");
 
     }
+
 }

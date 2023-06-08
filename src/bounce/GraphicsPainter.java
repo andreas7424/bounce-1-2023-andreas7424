@@ -38,6 +38,7 @@ public class GraphicsPainter implements Painter {
 
     @Override
     public void drawPolygon(int[] xPoints, int[] yPoints, int numPoints) {
+
         g.drawPolygon(xPoints, yPoints, numPoints);
     }
 
@@ -46,6 +47,7 @@ public class GraphicsPainter implements Painter {
     }
 
     public Color getColor() {
+
         return color;
     }
 
@@ -56,8 +58,11 @@ public class GraphicsPainter implements Painter {
 
     @Override
     public void translate(int x, int y) {
+        g.translate(x, y);
 
     }
+
+
 }
 
 

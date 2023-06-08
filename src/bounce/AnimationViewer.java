@@ -52,6 +52,12 @@ public class AnimationViewer extends JPanel implements ActionListener {
         BorderShape borderShape = new BorderShape(rectangleShape, 2);
         shapes.add(borderShape);
 
+        // Create a NestingShape and add some shapes to it.
+        NestingShape nestingShape = new NestingShape(30, 30, 2, 2, 50, 50);
+        nestingShape.add(new OvalShape(5, 5, 2, 2));
+        nestingShape.add(new RectangleShape(5, 5, 2, 2, 20, 20));
+        shapes.add(nestingShape);
+
         // Start the animation.
         timer.start();
     }

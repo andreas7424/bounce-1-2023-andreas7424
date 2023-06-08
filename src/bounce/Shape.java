@@ -165,10 +165,12 @@ public abstract class Shape {
      * will return "bounce.RectangleShape".
      */
     public String toString() {
+
         return getClass().getName();
     }
 
     public NestingShape parent() {
+
         return this.parent;
     }
 
@@ -181,11 +183,13 @@ public abstract class Shape {
     }
 
     public List<Shape> path() {
+        // if there is no parent, start a new list, otherwise start with parent's path
         List<Shape> path = this.parent == null ? new ArrayList<>() : this.parent.path();
         path.add(this);
         return path;
     }
-    // check if the shape fits within bounds
+    // Method to check if this NestingShape fits within specified bounds.
+    // It checks if the rightmost (x + width) and the bottommost (y + height) edges
     public boolean fitsWithinBounds(int width, int height) {
         return this.x() + this.width() <= width && this.y() + this.height() <= height;
     }

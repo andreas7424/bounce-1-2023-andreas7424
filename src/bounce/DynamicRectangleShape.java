@@ -12,6 +12,7 @@ public class DynamicRectangleShape extends Shape {
         this.outlineOnly = true;
     }
 
+    // This method is called when the rectangle needs to be drawn. Depending on the current state, it will either draw only the outline or a filled rectangle.
     @Override
     public void paint(Painter painter) {
         if (outlineOnly) {
@@ -22,7 +23,7 @@ public class DynamicRectangleShape extends Shape {
             painter.setColor(Color.BLACK); // Reset color to black
         }
     }
-
+    // This method is called when the rectangle moves. It first calls the superclass method to perform the actual move, then it checks if the rectangle has hit any of the sides of the window. If it hits the left or right side, the rectangle is set to be drawn filled in, if it hits the top or bottom side, it is set to be drawn as an outline.
     @Override
     public void move(int width, int height) {
         super.move(width, height);
