@@ -41,9 +41,9 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes = new ArrayList<Shape>();
 
         // Populate the list of Shapes.
-        RectangleShape rectangleShape1 = new RectangleShape(0, 0, 2, 3);
-        rectangleShape1.setText("Rectangle");
-        shapes.add(rectangleShape1);
+        RectangleShape rectangleShape = new RectangleShape(0, 0, 2, 3);
+        rectangleShape.setText("Rectangle");
+        shapes.add(rectangleShape);
 
 
         OvalShape ovalShape = new OvalShape(50, 50, 4, 6);
@@ -59,9 +59,9 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes.add(dynamicRectangleShape);
 
         // Create a RectangleShape and wrap it with a BorderShape
-        RectangleShape rectangleShape3 = new RectangleShape(200, 200, 3, 2);
-        rectangleShape3.setText("Border Rectangle");
-        BorderShape borderShape = new BorderShape(rectangleShape3, 2);
+        RectangleShape borderRectangle = new RectangleShape(200, 200, 3, 2);
+        borderRectangle.setText("Border Rectangle");
+        BorderShape borderShape = new BorderShape(borderRectangle, 2);
         shapes.add(borderShape);
 
         // Create a NestingShape and add some shapes to it.
