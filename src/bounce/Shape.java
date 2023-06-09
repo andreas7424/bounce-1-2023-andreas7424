@@ -40,6 +40,7 @@ public abstract class Shape {
     protected int height;
     private NestingShape parent;
     // ===
+    private String text = null;
 
     /**
      * Creates a Shape object with default values for instance variables.
@@ -115,7 +116,15 @@ public abstract class Shape {
      *
      * @param painter the Painter object used for drawing.
      */
-    public abstract void paint(Painter painter);
+
+    // Update the paint method to include the drawCentredText call
+    public void paint(Painter painter) {
+        // ... existing code
+
+        if (this.text != null) {
+            painter.drawCentredText(this.text, this.x, this.y, this.width, this.height);
+        }
+    }
 
     /**
      * Returns this Shape object's x position.
@@ -192,5 +201,9 @@ public abstract class Shape {
     // It checks if the rightmost (x + width) and the bottommost (y + height) edges
     public boolean fitsWithinBounds(int width, int height) {
         return this.x() + this.width() <= width && this.y() + this.height() <= height;
+    }
+
+    public void setText(String s) {
+        this.text = s;
     }
 }

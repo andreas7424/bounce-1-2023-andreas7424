@@ -11,6 +11,7 @@ public class GemShape extends Shape {
 
     @Override
     public void paint(Painter painter) {
+        super.paint(painter);
         int[] xPoints;
         int[] yPoints;
 

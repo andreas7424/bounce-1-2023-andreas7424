@@ -41,24 +41,40 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes = new ArrayList<Shape>();
 
         // Populate the list of Shapes.
-        shapes.add(new RectangleShape(0, 0, 2, 3));
-        shapes.add(new RectangleShape(10, 10, 5, 7));
-        shapes.add(new OvalShape(50,50,4,6)); // Add an instance of OvalShape
-        shapes.add(new GemShape(100, 20, 12, 15)); // Add an instance of GemShape
-        shapes.add(new DynamicRectangleShape(200, 200, 3, 2, Color.RED)); // Add an instance of DynamicRectangleShape
+        RectangleShape rectangleShape1 = new RectangleShape(0, 0, 2, 3);
+        rectangleShape1.setText("Rectangle");
+        shapes.add(rectangleShape1);
+
+
+        OvalShape ovalShape = new OvalShape(50, 50, 4, 6);
+        ovalShape.setText("Oval");
+        shapes.add(ovalShape);
+
+        GemShape gemShape = new GemShape(100, 20, 12, 15);
+        gemShape.setText("Gem");
+        shapes.add(gemShape);
+
+        DynamicRectangleShape dynamicRectangleShape = new DynamicRectangleShape(200, 200, 3, 2, Color.RED);
+        dynamicRectangleShape.setText("Dynamic Rectangle");
+        shapes.add(dynamicRectangleShape);
 
         // Create a RectangleShape and wrap it with a BorderShape
-        RectangleShape rectangleShape = new RectangleShape(200, 200, 3, 2);
-        BorderShape borderShape = new BorderShape(rectangleShape, 2);
+        RectangleShape rectangleShape3 = new RectangleShape(200, 200, 3, 2);
+        rectangleShape3.setText("Border Rectangle");
+        BorderShape borderShape = new BorderShape(rectangleShape3, 2);
         shapes.add(borderShape);
 
         // Create a NestingShape and add some shapes to it.
         NestingShape nestingShape = new NestingShape(30, 30, 2, 2, 50, 50);
-        nestingShape.add(new OvalShape(5, 5, 2, 2));
-        nestingShape.add(new RectangleShape(5, 5, 2, 2, 20, 20));
+        OvalShape nestedOvalShape = new OvalShape(5, 5, 2, 2);
+        nestedOvalShape.setText("Nested Oval");
+        RectangleShape nestedRectangleShape = new RectangleShape(5, 5, 2, 2, 20, 20);
+        nestedRectangleShape.setText("Nested Rectangle");
+        nestingShape.add(nestedOvalShape);
+        nestingShape.add(nestedRectangleShape);
+        nestingShape.setText("Nesting Shape");
         shapes.add(nestingShape);
 
-        // Start the animation.
         timer.start();
     }
 

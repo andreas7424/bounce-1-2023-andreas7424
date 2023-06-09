@@ -65,6 +65,7 @@ public class NestingShape extends Shape {
     // paint() method draws this NestingShape and all of its children on the screen.
     @Override
     public void paint(Painter painter) {
+        super.paint(painter);
         painter.drawRect(this.x(), this.y(), this.width(), this.height());
         painter.translate(this.x(), this.y());
         for (Shape shape : children) {

@@ -17,6 +17,7 @@ public class GraphicsPainter implements Painter {
      * Creates a GraphicsPainter object and sets its Graphics delegate.
      */
     public GraphicsPainter(Graphics g) {
+
         this.g = g;
     }
 
@@ -61,9 +62,23 @@ public class GraphicsPainter implements Painter {
         g.translate(x, y);
 
     }
+    @Override
+    public void drawCentredText(String text, int x, int y, int width, int height) {
+        // Determine the width of the text to be drawn, so can position correctly
+        FontMetrics metrics = g.getFontMetrics();
+        int textWidth = metrics.stringWidth(text);
+
+        // Calculate the position to start the text, such that it's centered in the Shape
+        int startX = x + width / 2 - textWidth / 2;
+        int startY = y + height / 2;
+
+        g.drawString(text, startX, startY);
+    }
 
 
-}
+    }
+
+
 
 
 

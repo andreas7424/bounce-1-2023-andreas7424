@@ -27,4 +27,6 @@ public interface Painter {
 
     void translate(int x, int y);
 
+    void drawCentredText(String text, int x, int y, int width, int height);
+
 }

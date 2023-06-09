@@ -48,6 +48,8 @@ public class RectangleShape extends Shape {
      * Paints this RectangleShape object using the supplied Painter object.
      */
     public void paint(Painter painter) {
+
+        super.paint(painter);
         painter.drawRect(x, y, width, height);
     }
 }
