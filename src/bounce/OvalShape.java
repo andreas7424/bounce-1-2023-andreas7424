@@ -13,6 +13,6 @@ public class OvalShape extends Shape {
     public void paint(Painter painter) {
         super.paint(painter);
 
-        painter.drawOval(x,y,DEFAULT_WIDTH,DEFAULT_HEIGHT);
+        painter.drawOval(x,y,width,height);
     }
 }

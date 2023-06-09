@@ -4,13 +4,13 @@ import java.util.*;
 
 public class NestingShape extends Shape {
 
-    // children is a List that holds all the shapes contained by this NestingShape.
-    private List<Shape> children;
+    // shapeList is a List that holds all the shapes contained by this NestingShape.
+    private List<Shape> shapeList;
 
-    // Constructor initialises the NestingShape with specified position, speed, and size, and initialises the children List.
+    // Constructor initialises the NestingShape with specified position, speed, and size, and initialises the shapeList.
     public NestingShape(int x, int y, int deltaX, int deltaY, int width, int height) {
         super(x, y, deltaX, deltaY, width, height);
-        this.children = new ArrayList<>();
+        this.shapeList = new ArrayList<>();
     }
 
 
@@ -25,50 +25,50 @@ public class NestingShape extends Shape {
             throw new IllegalArgumentException("Shape is already part of a NestingShape");
         }
         shape.setParent(this);
-        children.add(shape);
+        shapeList.add(shape);
     }
 
     // remove() method attempts to remove a shape from this NestingShape.
     public void remove(Shape shape) {
         shape.setParent(null);
-        children.remove(shape);
+        shapeList.remove(shape);
     }
 
     public Shape shapeAt(int index) {
 
-        return children.get(index);
+        return shapeList.get(index);
     }
 
     public int shapeCount() {
 
-        return children.size();
+        return shapeList.size();
     }
 
-    // indexOf() method returns the index of the specified shape in the children List.
+    // indexOf() method returns the index of the specified shape in the shapeList.
     public int indexOf(Shape shape) {
 
-        return children.indexOf(shape);
+        return shapeList.indexOf(shape);
     }
 
     // contains() method checks whether this NestingShape contains the specified shape.
     public boolean contains(Shape shape) {
-        return children.contains(shape);
+        return shapeList.contains(shape);
     }
-    // move() method updates the position of this NestingShape and all of its children.
+    // Moves this NestingShape and all its children within the specified bounds..
     @Override
     public void move(int width, int height) {
         super.move(width, height);
-        for (Shape shape : children) {
+        for (Shape shape : shapeList) {
             shape.move(this.width(), this.height());
         }
     }
-    // paint() method draws this NestingShape and all of its children on the screen.
+    // Paints this NestingShape and all its children using the provided Painter object.
     @Override
     public void paint(Painter painter) {
         super.paint(painter);
         painter.drawRect(this.x(), this.y(), this.width(), this.height());
         painter.translate(this.x(), this.y());
-        for (Shape shape : children) {
+        for (Shape shape : shapeList) {
             shape.paint(painter);
         }
         // Restores the original coordinate system.
