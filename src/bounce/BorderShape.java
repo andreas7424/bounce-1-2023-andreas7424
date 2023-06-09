@@ -13,7 +13,7 @@ public class BorderShape extends Shape {
         adjustPositionAndDimensions();
     }
 
-    // This method paints the border shape. It paints the inner shape first, then draws the border.
+    // This method paints the border shape. Adjusts the position and dimensions of the BorderShape based on the inner shape and border width.
     private void adjustPositionAndDimensions() {
         int shapeX = shape.x() - borderWidth;
         int shapeY = shape.y() - borderWidth;
@@ -26,10 +26,11 @@ public class BorderShape extends Shape {
         this.height = shapeHeight;
     }
 
-// Draw the border. It draws the border in multiple iterations to achieve the border width.
+
     @Override
     public void paint(Painter painter) {
         shape.paint(painter);
+        // Draw the border in multiple iterations to achieve the desired border width.
         for (int i = 0; i < borderWidth; i++) {
             int x = shape.x() - borderWidth + i;
             int y = shape.y() - borderWidth + i;
